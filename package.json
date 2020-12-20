@@ -9,8 +9,9 @@
     "watch": "tsc -w",
     "dev": "nodemon --exec ts-node src/index.ts",
     "start": "ts-node src/index.ts",
-    "fmt": "prettier --write src",
-    "lint": "eslint src --ext ts"
+    "fmt": "prettier src --write",
+    "lint": "eslint src --ext ts",
+    "check": "prettier src --check && eslint src --ext ts"
   },
   "devDependencies": {
     "@types/node": "^14.14.14",
