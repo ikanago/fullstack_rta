@@ -44,19 +44,23 @@ export class UserResolver {
     ): Promise<UserResponse> {
         if (options.username.length <= 2) {
             return {
-                errors: [{
-                    field: 'username',
-                    message: 'Length of username must be greater than 2'
-                }]
-            }
+                errors: [
+                    {
+                        field: "username",
+                        message: "Length of username must be greater than 2",
+                    },
+                ],
+            };
         }
         if (options.password.length <= 3) {
             return {
-                errors: [{
-                    field: 'password',
-                    message: 'Length of password must be greater than 2'
-                }]
-            }
+                errors: [
+                    {
+                        field: "password",
+                        message: "Length of password must be greater than 2",
+                    },
+                ],
+            };
         }
 
         const hashedPassword = await argon2.hash(options.password);
@@ -66,15 +70,16 @@ export class UserResolver {
         });
         try {
             await em.persistAndFlush(user);
-        }
-        catch(err) {
-            if (err.code === '23505') {
+        } catch (err) {
+            if (err.code === "23505") {
                 return {
-                    errors: [{
-                        field: 'username',
-                        message: 'The username has already taken'
-                    }]
-                }
+                    errors: [
+                        {
+                            field: "username",
+                            message: "The username has already taken",
+                        },
+                    ],
+                };
             }
         }
         return { user };
