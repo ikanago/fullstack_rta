@@ -8,12 +8,35 @@
   "scripts": {
     "watch": "tsc -w",
     "dev": "nodemon --exec ts-node src/index.ts",
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "fmt": "prettier src --write",
+    "lint": "eslint src --ext ts",
+    "check": "prettier src --check && eslint src --ext ts"
   },
   "devDependencies": {
     "@types/node": "^14.14.14",
+    "@typescript-eslint/eslint-plugin": "^4.10.0",
+    "@typescript-eslint/parser": "^4.10.0",
+    "eslint": "^7.16.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-import": "^2.22.1",
     "nodemon": "^2.0.6",
+    "prettier": "^2.2.1",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "@mikro-orm/cli": "^4.3.4",
+    "@mikro-orm/core": "^4.3.4",
+    "@mikro-orm/migrations": "^4.3.4",
+    "@mikro-orm/postgresql": "^4.3.4",
+    "pg": "^8.5.1"
+  },
+  "mikro-orm": {
+    "useTsNode": true,
+    "configPaths": [
+      "./src/mikro-orm.config.ts",
+      "./dist/mikro-orm.config.js"
+    ]
   }
 }
