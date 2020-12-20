@@ -10,7 +10,8 @@
     "watch": "tsc -w",
     "dev": "nodemon --exec ts-node src/index.ts",
     "start": "ts-node src/index.ts",
-    "fmt": "prettier src --write"
+    "fmt": "prettier src --write",
+    "create:migration": "mikro-orm migration:create"
   },
   "devDependencies": {
     "@types/express": "^4.17.9",
@@ -31,6 +32,7 @@
     "@mikro-orm/migrations": "^4.3.4",
     "@mikro-orm/postgresql": "^4.3.4",
     "apollo-server-express": "^2.19.0",
+    "argon2": "^0.27.1",
     "express": "^4.17.1",
     "graphql": "^15.4.0",
     "pg": "^8.5.1",
