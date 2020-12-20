@@ -6,11 +6,11 @@
   "author": "ikanago <28985004+ikanago@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
+    "build": "tsc",
     "watch": "tsc -w",
     "dev": "nodemon --exec ts-node src/index.ts",
     "start": "ts-node src/index.ts",
-    "fmt": "prettier src --write",
-    "check": "prettier src --check"
+    "fmt": "prettier src --write"
   },
   "devDependencies": {
     "@types/express": "^4.17.9",
