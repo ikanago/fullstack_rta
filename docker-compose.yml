@@ -1,7 +1,7 @@
 version: "3"
 services:
   postgres:
-    container_name: RTA
+    container_name: RTA_db
     image: postgres:latest
     ports:
       - "5432:5432"
@@ -11,6 +11,12 @@ services:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=RTA
+
+  redis:
+    container_name: session_storage
+    image: redis:latest
+    ports:
+      - "6379:6379"
 
 volumes:
   db_data: ~
